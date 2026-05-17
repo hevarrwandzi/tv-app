@@ -1,0 +1,27 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS / misc
+.DS_Store
+Thumbs.db
+*.log
+
+# Kotlin
+.kotlin/
+
+# Signing / secrets
+*.jks
+*.keystore
+keystore.properties
+secrets.properties
