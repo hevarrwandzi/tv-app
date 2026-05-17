@@ -7,14 +7,16 @@ Status: mock UI only. No backend, no real IPTV streams, no payment, no movie cat
 ## Features
 
 - Splash screen with auto-navigation after 2 seconds
-- Home screen with IPTV-style layout
-- Left sidebar categories
-- Filtered live channel grid using fake data
+- Dual-mode frontend:
+  - TV layout with left sidebar, big cards, and focus-first D-pad behavior
+  - Phone layout with bottom navigation, featured hero section, and cleaner mobile cards
+- Filtered live channel grid using fake data only
 - D-pad friendly focus states with scale/highlight effects
 - Player placeholder screen
 - Settings placeholder screen
 - MVVM-style frontend structure
 - Media3/ExoPlayer dependency added for future playback work
+- Android Studio Compose previews for TV and mobile variants
 
 ## Tech stack
 
@@ -60,6 +62,9 @@ app/build/outputs/apk/debug/app-debug.apk
 2. Open the `tv-app` folder
 3. Let Gradle sync finish
 4. Build with `assembleDebug` or the IDE build button
+5. For design previews, open:
+   - `app/src/main/java/com/hevar/tvapp/ui/PreviewGallery.kt`
+   - `app/src/main/java/com/hevar/tvapp/ui/home/HomeScreen.kt`
 
 ## Project structure
 
@@ -92,4 +97,5 @@ tv-app/
 - Fake repository only: `FakeChannelRepository`
 - Real playback intentionally not implemented yet
 - Local SDK paths are not committed
-- Git repo is initialized and safe for GitHub push after review
+- `local.properties` stays local and is ignored by Git
+- The project is ready for GitHub push with a clean Android `.gitignore`
