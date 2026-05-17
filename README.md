@@ -148,13 +148,4 @@ tv-app/
 ├── gradle.properties
 ├── settings.gradle.kts
 └── README.md
-```
-
-## Notes
-
-- Fake repository only: `FakeChannelRepository`
-- Real playback intentionally not implemented yet
-- Local SDK paths are not committed
-- `local.properties` stays local and is ignored by Git
-- Emulator testing is not required right now because your current setup has ADB/KVM issues
-- The project is ready for GitHub collaboration, CI, and tagged APK releases
+``
