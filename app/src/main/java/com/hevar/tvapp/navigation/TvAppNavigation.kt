@@ -15,10 +15,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -34,6 +34,9 @@ import androidx.navigation.navArgument
 import androidx.tv.material3.MaterialTheme
 import androidx.tv.material3.Text
 import com.hevar.tvapp.data.FakeChannelRepository
+import com.hevar.tvapp.model.Channel
+import com.hevar.tvapp.model.ChannelCategory
+import com.hevar.tvapp.model.ProgramSlot
 import com.hevar.tvapp.theme.AppBackground
 import com.hevar.tvapp.theme.BorderFocused
 import com.hevar.tvapp.theme.SurfaceDark
@@ -136,9 +139,9 @@ fun TvAppNavigation(modifier: Modifier = Modifier) {
                 arguments = listOf(navArgument("channelId") { type = NavType.StringType })
             ) { backStackEntryForPlayer ->
                 val channelId = backStackEntryForPlayer.arguments?.getString("channelId").orEmpty()
-                val channel = repository.getChannelById(channelId)
+                val channel = repository.getChannelById(channelId) ?: fallbackChannel()
                 PlayerPlaceholderScreen(
-                    channelName = channel?.name ?: "Unknown Channel",
+                    channel = channel,
                     onBack = { navController.popBackStack() }
                 )
             }
@@ -254,3 +257,17 @@ private fun BottomNavItem(
         }
     }
 }
+
+private fun fallbackChannel() = Channel(
+    id = "missing-channel",
+    name = "Unknown Channel",
+    category = ChannelCategory.All,
+    tagline = "Fallback player state",
+    description = "Fallback metadata used when a channel ID cannot be resolved from the fake repository.",
+    previewStreamUrl = FakeChannelRepository().getChannels().first().previewStreamUrl,
+    currentProgram = ProgramSlot("Unavailable", "Now", "No mock schedule found for this channel ID."),
+    upcomingPrograms = listOf(
+        ProgramSlot("Retry", "Next", "Navigate back and choose a channel again."),
+        ProgramSlot("Settings", "Later", "The player route itself is still working.")
+    )
+)

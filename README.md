@@ -8,7 +8,7 @@ Frontend-only IPTV UI for Android TV and Android phone, built with Kotlin + Jetp
 Status:
 - mock UI only
 - no backend
-- no real IPTV streams
+- no real IPTV channel feeds (player uses one shared public demo stream for frontend validation)
 - no payment
 - no movie catalog
 
@@ -37,8 +37,8 @@ Rendered showcase images based on the current UI direction:
 ### Mobile home
 <img src="docs/assets/home-mobile.png" alt="Mobile Home" width="320" />
 
-### Player placeholder
-![Player Placeholder](docs/assets/player-tv.png)
+### Player screen
+![Player Screen](docs/assets/player-tv.png)
 
 ## Highlights
 
@@ -47,7 +47,7 @@ Rendered showcase images based on the current UI direction:
   - Mobile mode: bottom navigation, featured hero section, cleaner cards
 - Splash screen with auto-navigation after 2 seconds
 - Category filtering with fake/mock channels only
-- Player placeholder screen ready for future Media3 integration
+- Media3 player screen with one shared public demo stream plus mock now/next metadata
 - Settings placeholder screen
 - Android TV banner + custom branding assets
 - Compose previews for TV and mobile screens
@@ -107,8 +107,9 @@ This repo includes two workflows:
 `android-release.yml`
 - runs automatically when you push a tag like `v1.0.0`
 - can also run manually from the Actions tab with a chosen tag name
-- builds `app-debug.apk`
-- creates or updates a GitHub Release and attaches the APK
+- builds `assembleRelease` and `bundleRelease`
+- uploads unsigned release APK and release AAB artifacts
+- creates or updates a GitHub Release and attaches both outputs
 
 Example release flow:
 

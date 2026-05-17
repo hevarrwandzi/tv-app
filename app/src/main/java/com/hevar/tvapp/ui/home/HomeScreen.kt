@@ -301,7 +301,7 @@ private fun MobileHomeHero(
                 overflow = TextOverflow.Ellipsis
             )
             Text(
-                text = "$channelTag • Frontend only • Player comes later",
+                text = "$channelTag • Frontend only • Demo player ready",
                 fontSize = 15.sp,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )

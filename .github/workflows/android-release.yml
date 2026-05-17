@@ -1,4 +1,4 @@
-name: Android APK Release
+name: Android Release Artifacts
 
 on:
   push:
@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 jobs:
-  release-apk:
+  build-release:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,8 +34,27 @@ jobs:
       - name: Grant execute permission for Gradle wrapper
         run: chmod +x ./gradlew
 
-      - name: Build debug APK
-        run: ./gradlew assembleDebug
+      - name: Build release APK and AAB
+        run: ./gradlew assembleRelease bundleRelease
+
+      - name: Rename release outputs for publishing
+        run: |
+          cp app/build/outputs/apk/release/app-release-unsigned.apk app/build/outputs/apk/release/tv-app-release-unsigned.apk
+          cp app/build/outputs/bundle/release/app-release.aab app/build/outputs/bundle/release/tv-app-release.aab
+
+      - name: Upload release APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-app-release-unsigned-apk
+          path: app/build/outputs/apk/release/tv-app-release-unsigned.apk
+          if-no-files-found: error
+
+      - name: Upload release AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tv-app-release-aab
+          path: app/build/outputs/bundle/release/tv-app-release.aab
+          if-no-files-found: error
 
       - name: Resolve release tag
         id: tag
@@ -52,4 +71,6 @@ jobs:
           tag_name: ${{ steps.tag.outputs.value }}
           name: ${{ steps.tag.outputs.value }}
           generate_release_notes: true
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: |
+            app/build/outputs/apk/release/tv-app-release-unsigned.apk
+            app/build/outputs/bundle/release/tv-app-release.aab
