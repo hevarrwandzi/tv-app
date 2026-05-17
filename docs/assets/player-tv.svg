@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#12070f"/><stop offset="100%" stop-color="#33122e"/></linearGradient></defs>
+<rect width="1280" height="720" fill="url(#bg)"/>
+<text x="96" y="138" fill="#FFF4F8" font-size="56" font-family="DejaVu Sans" font-weight="700">Kurdistan TV</text>
+<text x="96" y="192" fill="#D8B7C8" font-size="26" font-family="DejaVu Sans">Player will be added later</text>
+<rect x="96" y="252" width="1088" height="284" rx="40" fill="#20111f" stroke="#4d2857" stroke-width="2"/>
+<polygon points="620,350 620,438 700,394" fill="#fff4f8"/>
+<rect x="96" y="590" width="210" height="64" rx="26" fill="#4B06B9"/><text x="148" y="630" fill="#FFF4F8" font-size="26" font-family="DejaVu Sans">Play/Pause</text>
+<rect x="330" y="590" width="180" height="64" rx="26" fill="#2a1630"/><text x="390" y="630" fill="#FFF4F8" font-size="26" font-family="DejaVu Sans">Favorite</text>
+<rect x="534" y="590" width="140" height="64" rx="26" fill="#2a1630"/><text x="584" y="630" fill="#FFF4F8" font-size="26" font-family="DejaVu Sans">Back</text>
+</svg>

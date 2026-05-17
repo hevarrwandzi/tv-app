@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4B06B9"/>
+      <stop offset="100%" stop-color="#FF8A8A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" rx="64" fill="url(#g)"/>
+  <rect x="42" y="42" width="1196" height="636" rx="48" fill="#13131366" stroke="#fff4f824" stroke-width="3"/>
+  <rect x="88" y="118" width="300" height="300" rx="50" fill="#fff4f819" stroke="#fff4f837" stroke-width="2"/>
+  <rect x="156" y="190" width="164" height="96" rx="24" fill="#FFF4F8"/>
+  <circle cx="238" cy="166" r="14" fill="#4B06B9"/>
+  <text x="470" y="220" font-size="72" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" fill="#FFF4F8">tv-app</text>
+  <text x="470" y="300" font-size="44" font-family="DejaVu Sans, Arial, sans-serif" fill="#D8B7C8">Android TV + mobile IPTV mock frontend</text>
+  <rect x="470" y="360" width="230" height="60" rx="28" fill="#131313dd"/>
+  <text x="585" y="399" font-size="24" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" fill="#FFF4F8">LIVE UI ONLY</text>
+  <rect x="722" y="360" width="268" height="60" rx="28" fill="#fff4f82d"/>
+  <text x="856" y="399" font-size="24" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" fill="#FFF4F8">Compose for TV</text>
+  <text x="470" y="476" font-size="30" font-family="DejaVu Sans, Arial, sans-serif" fill="#FFF4F8">Big focus-first TV layout. Cleaner phone mode. Real player later.</text>
+</svg>

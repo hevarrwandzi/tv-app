@@ -1,6 +1,7 @@
 # tv-app
 
 [![Android Debug Build](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-debug.yml/badge.svg)](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-debug.yml)
+[![Android APK Release](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-release.yml/badge.svg)](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-release.yml)
 
 Frontend-only IPTV UI for Android TV and Android phone, built with Kotlin + Jetpack Compose.
 
@@ -11,6 +12,32 @@ Status:
 - no payment
 - no movie catalog
 
+## Branding
+
+<p align="center">
+  <img src="branding/app-icon.svg" alt="tv-app icon" width="144" />
+</p>
+
+<p align="center">
+  <img src="branding/tv-banner.svg" alt="tv-app banner" width="720" />
+</p>
+
+The repo now includes real source branding assets:
+- `branding/app-icon.svg`
+- `branding/tv-banner.svg`
+- PNG launcher assets wired into the Android manifest for the app icon and TV banner
+
+## Screenshots
+
+### TV home
+![TV Home](docs/assets/home-tv.svg)
+
+### Mobile home
+<img src="docs/assets/home-mobile.svg" alt="Mobile Home" width="320" />
+
+### Player placeholder
+![Player Placeholder](docs/assets/player-tv.svg)
+
 ## Highlights
 
 - Dual-mode frontend
@@ -20,7 +47,7 @@ Status:
 - Category filtering with fake/mock channels only
 - Player placeholder screen ready for future Media3 integration
 - Settings placeholder screen
-- Android TV banner + custom app branding
+- Android TV banner + custom branding assets
 - Compose previews for TV and mobile screens
 - MVVM-style structure with fake repository and simple navigation
 
@@ -66,13 +93,27 @@ app/build/outputs/apk/debug/app-debug.apk
 
 ## GitHub Actions
 
-This repo includes a CI workflow:
+This repo includes two workflows:
 - `.github/workflows/android-debug.yml`
+- `.github/workflows/android-release.yml`
 
-It does the following on every push to `main`, pull request, or manual trigger:
-- sets up JDK 17
-- runs `./gradlew assembleDebug`
+`android-debug.yml`
+- runs on every push to `main`, pull request, or manual trigger
+- builds with `./gradlew assembleDebug`
 - uploads `app-debug.apk` as a workflow artifact
+
+`android-release.yml`
+- runs automatically when you push a tag like `v1.0.0`
+- can also run manually from the Actions tab with a chosen tag name
+- builds `app-debug.apk`
+- creates or updates a GitHub Release and attaches the APK
+
+Example release flow:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ## Project structure
 
@@ -80,7 +121,8 @@ It does the following on every push to `main`, pull request, or manual trigger:
 tv-app/
 ├── .github/
 │   └── workflows/
-│       └── android-debug.yml
+│       ├── android-debug.yml
+│       └── android-release.yml
 ├── app/
 │   ├── build.gradle.kts
 │   └── src/main/
@@ -96,7 +138,11 @@ tv-app/
 │       │       ├── settings/
 │       │       └── splash/
 │       └── res/
-│           └── drawable/
+│           ├── drawable/
+│           └── drawable-nodpi/
+├── branding/
+├── docs/
+│   └── assets/
 ├── gradle/
 ├── build.gradle.kts
 ├── gradle.properties
@@ -111,4 +157,4 @@ tv-app/
 - Local SDK paths are not committed
 - `local.properties` stays local and is ignored by Git
 - Emulator testing is not required right now because your current setup has ADB/KVM issues
-- The project is ready for GitHub collaboration and CI
+- The project is ready for GitHub collaboration, CI, and tagged APK releases
