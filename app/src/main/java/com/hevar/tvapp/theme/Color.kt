@@ -2,11 +2,12 @@ package com.hevar.tvapp.theme
 
 import androidx.compose.ui.graphics.Color
 
-val AppBackground = Color(0xFF0B1020)
-val SurfaceDark = Color(0xFF121A2E)
-val SurfaceHighlight = Color(0xFF1C2945)
-val AccentBlue = Color(0xFF4DA3FF)
-val AccentGreen = Color(0xFF38D996)
-val TextPrimary = Color(0xFFF4F7FB)
-val TextSecondary = Color(0xFFB4C0D3)
-val BorderFocused = Color(0xFF86C1FF)
+// Red + purple TV palette.
+val AppBackground = Color(0xFF131313)
+val SurfaceDark = Color(0xFF6B4E68)
+val SurfaceHighlight = Color(0xFF33122E)
+val AccentBlue = Color(0xFFFF8989)
+val AccentGreen = Color(0xFF4B06B9)
+val TextPrimary = Color(0xFFFFF4F8)
+val TextSecondary = Color(0xFFD8B7C8)
+val BorderFocused = Color(0xFFFF78A0)

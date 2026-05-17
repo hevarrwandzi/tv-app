@@ -32,9 +32,9 @@ fun TvAppTheme(content: @Composable () -> Unit) {
         border = BorderFocused,
         borderVariant = SurfaceHighlight,
         scrim = AppBackground,
-        error = androidx.compose.ui.graphics.Color(0xFFFF6B6B),
+        error = androidx.compose.ui.graphics.Color(0xFFFF7A96),
         onError = TextPrimary,
-        errorContainer = androidx.compose.ui.graphics.Color(0xFF522626),
+        errorContainer = androidx.compose.ui.graphics.Color(0xFF5A1E33),
         onErrorContainer = TextPrimary
     )
 

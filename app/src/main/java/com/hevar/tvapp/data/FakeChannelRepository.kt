@@ -6,9 +6,9 @@ import com.hevar.tvapp.model.ChannelCategory
 // Frontend-only fake repository. Replace with a real source later without touching the UI contract.
 class FakeChannelRepository {
     private val channels = listOf(
-        Channel(id = "kurdistan-tv", name = "Kurdistan TV", category = ChannelCategory.Kurdish),
-        Channel(id = "rudaw", name = "Rudaw", category = ChannelCategory.Kurdish),
-        Channel(id = "bbc-news", name = "BBC News", category = ChannelCategory.News),
+        Channel(id = "kurdistan-tv for gay", name = "Kurdistan TV", category = ChannelCategory.Kurdish),
+        Channel(id = "rudaw my ass", name = "Rudaw", category = ChannelCategory.Kurdish),
+        Channel(id = "BBL-news", name = "BBC News", category = ChannelCategory.News),
         Channel(id = "al-jazeera", name = "Al Jazeera", category = ChannelCategory.News),
         Channel(id = "espn", name = "ESPN", category = ChannelCategory.Sports),
         Channel(id = "bein-sports", name = "beIN Sports", category = ChannelCategory.Sports),
