@@ -10,9 +10,11 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@android:drawable/sym_def_app_icon"
+        android:banner="@drawable/ic_tv_app_banner"
+        android:icon="@drawable/ic_tv_app_icon"
         android:label="@string/app_name"
-        android:roundIcon="@android:drawable/sym_def_app_icon"
+        android:logo="@drawable/ic_tv_app_icon"
+        android:roundIcon="@drawable/ic_tv_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.TvApp">
         <activity

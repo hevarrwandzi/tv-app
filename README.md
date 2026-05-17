@@ -1,22 +1,28 @@
 # tv-app
 
-Frontend-only Android TV IPTV GUI built with Kotlin + Jetpack Compose for TV.
+[![Android Debug Build](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-debug.yml/badge.svg)](https://github.com/hevarrwandzi/tv-app/actions/workflows/android-debug.yml)
 
-Status: mock UI only. No backend, no real IPTV streams, no payment, no movie catalog.
+Frontend-only IPTV UI for Android TV and Android phone, built with Kotlin + Jetpack Compose.
 
-## Features
+Status:
+- mock UI only
+- no backend
+- no real IPTV streams
+- no payment
+- no movie catalog
 
+## Highlights
+
+- Dual-mode frontend
+  - TV mode: large focus-first layout, left sidebar, D-pad friendly cards
+  - Mobile mode: bottom navigation, featured hero section, cleaner cards
 - Splash screen with auto-navigation after 2 seconds
-- Dual-mode frontend:
-  - TV layout with left sidebar, big cards, and focus-first D-pad behavior
-  - Phone layout with bottom navigation, featured hero section, and cleaner mobile cards
-- Filtered live channel grid using fake data only
-- D-pad friendly focus states with scale/highlight effects
-- Player placeholder screen
+- Category filtering with fake/mock channels only
+- Player placeholder screen ready for future Media3 integration
 - Settings placeholder screen
-- MVVM-style frontend structure
-- Media3/ExoPlayer dependency added for future playback work
-- Android Studio Compose previews for TV and mobile variants
+- Android TV banner + custom app branding
+- Compose previews for TV and mobile screens
+- MVVM-style structure with fake repository and simple navigation
 
 ## Tech stack
 
@@ -25,16 +31,8 @@ Status: mock UI only. No backend, no real IPTV streams, no payment, no movie cat
 - Jetpack Compose
 - Compose Navigation
 - Compose for TV Material
+- Compose Material 3
 - Media3 ExoPlayer
-
-## Minimum requirements
-
-- Linux
-- Java 17
-- Android SDK Platform 34 installed
-- Android build-tools installed
-
-This project does not require emulator testing right now.
 
 ## Build
 
@@ -44,7 +42,7 @@ Verified on Linux with:
 ./gradlew assembleDebug
 ```
 
-Result:
+Expected result:
 
 ```text
 BUILD SUCCESSFUL
@@ -62,14 +60,27 @@ app/build/outputs/apk/debug/app-debug.apk
 2. Open the `tv-app` folder
 3. Let Gradle sync finish
 4. Build with `assembleDebug` or the IDE build button
-5. For design previews, open:
+5. For previews, open:
    - `app/src/main/java/com/hevar/tvapp/ui/PreviewGallery.kt`
    - `app/src/main/java/com/hevar/tvapp/ui/home/HomeScreen.kt`
+
+## GitHub Actions
+
+This repo includes a CI workflow:
+- `.github/workflows/android-debug.yml`
+
+It does the following on every push to `main`, pull request, or manual trigger:
+- sets up JDK 17
+- runs `./gradlew assembleDebug`
+- uploads `app-debug.apk` as a workflow artifact
 
 ## Project structure
 
 ```text
 tv-app/
+├── .github/
+│   └── workflows/
+│       └── android-debug.yml
 ├── app/
 │   ├── build.gradle.kts
 │   └── src/main/
@@ -85,6 +96,7 @@ tv-app/
 │       │       ├── settings/
 │       │       └── splash/
 │       └── res/
+│           └── drawable/
 ├── gradle/
 ├── build.gradle.kts
 ├── gradle.properties
@@ -98,4 +110,5 @@ tv-app/
 - Real playback intentionally not implemented yet
 - Local SDK paths are not committed
 - `local.properties` stays local and is ignored by Git
-- The project is ready for GitHub push with a clean Android `.gitignore`
+- Emulator testing is not required right now because your current setup has ADB/KVM issues
+- The project is ready for GitHub collaboration and CI
