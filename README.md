@@ -29,14 +29,16 @@ The repo now includes real source branding assets:
 
 ## Screenshots
 
+Rendered showcase images based on the current UI direction:
+
 ### TV home
-![TV Home](docs/assets/home-tv.svg)
+![TV Home](docs/assets/home-tv.png)
 
 ### Mobile home
-<img src="docs/assets/home-mobile.svg" alt="Mobile Home" width="320" />
+<img src="docs/assets/home-mobile.png" alt="Mobile Home" width="320" />
 
 ### Player placeholder
-![Player Placeholder](docs/assets/player-tv.svg)
+![Player Placeholder](docs/assets/player-tv.png)
 
 ## Highlights
 
